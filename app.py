@@ -1,8 +1,15 @@
 import re
 import requests
 from flask import Flask, render_template, url_for, request
+from database import db_session
+from models import User
 
 app = Flask(__name__, static_path='/static', static_url_path='/static')
+
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    db_session.remove()
+
 
 @app.route("/")
 def new_tab():
