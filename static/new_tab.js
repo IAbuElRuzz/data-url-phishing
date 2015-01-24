@@ -45,6 +45,10 @@ function initialize(targetURL, changeFocus, fakeRedirect) {
   else if (fakeRedirect) {
     console.log("not implemented");
   }
-  var callback = function(dataURL) { setTimeout(function() {newWindow.location.replace(dataURL, window);}, 5000);};
+  var callback = function(dataURL) {
+    setTimeout(function() {
+      newWindow.location.replace(dataURL, window);
+    }, 2000);
+  };
   buildDataURL(newWindow, targetURL, callback);
 }
