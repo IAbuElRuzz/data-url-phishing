@@ -36,7 +36,7 @@ function buildDataURL(window, targetURL, cback) {
 
 
 function initialize(targetURL, changeFocus, fakeRedirect) {
-  var WAIT_TIME = 1000;
+  var WAIT_TIME = 500;
   var newWindow = window.open(targetURL, 'target');
 
   if (changeFocus && !fakeRedirect) {
