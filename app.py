@@ -11,6 +11,23 @@ def shutdown_session(exception=None):
     db_session.remove()
 
 
+def save(obj):
+    db_session.add(obj)
+    return db_session.commit()
+
+
+def create_user():
+    user = User()
+    save(user)
+    return user.id
+
+def save_key(id, key):
+    user = User.query.filter(User.id==id).first()
+    keys = user.add_key(key)
+    save(user)
+    return keys
+
+
 @app.route("/")
 def new_tab():
     print 'a'
