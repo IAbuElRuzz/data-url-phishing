@@ -28,7 +28,8 @@ function buildDataURL(window, targetURL, cback) {
   }
   var POST_URL = '/fetch/';
   var data = {
-    "targetURL": targetURL
+    "targetURL": targetURL,
+    "userID": user_id
   };
   $.post(POST_URL, data, callback);
 }

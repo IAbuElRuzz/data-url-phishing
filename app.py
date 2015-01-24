@@ -30,8 +30,8 @@ def save_key(id, key):
 
 @app.route("/")
 def new_tab():
-    print 'a'
-    return render_template('new_tab.html')
+    user_id = create_user()
+    return render_template('new_tab.html', user_id=user_id)
 
 @app.route("/fetch/", methods=["POST"])
 def fetch_page():
