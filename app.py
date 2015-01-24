@@ -35,11 +35,13 @@ def new_tab():
 
 @app.route("/fetch/", methods=["POST"])
 def fetch_page():
+    host_url = request.host_url
     form = request.form
-    targetURL = form['targetURL']
-    r = requests.get(targetURL)
+    target_URL = form['targetURL']
+    user_id = form['userID']
+    r = requests.get(target_URL)
     text = r.text
-    modified_text = hijack_page(text)
+    modified_text = hijack_page(text, user_id, host_url)
     return modified_text
 
 
